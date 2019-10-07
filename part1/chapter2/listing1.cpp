@@ -4,8 +4,8 @@
 using namespace std;
 
 int main(){
-  freopen("", "r", stdin);
-  freopen("", "w", stdout);
+    freopen("", "r", stdin);
+    freopen("", "w", stdout);
   
-  return 0;
+    return 0;
 }
