@@ -20,3 +20,14 @@ void build(int *a, int n) {
         if ((i | i + 1) < n) fen[i | i + 1] += fen[i];
     }
 }
+
+int get_pos(LL S) {
+    int i = (1 << H) - 1;
+    if (fen[i] < S) return -1;
+    for (int h = H - 1; h >= 0; --h) {
+        int j = i - (1 << h);
+        if (fen[j] >= S) i = j;
+        else S -= fen[j];
+    }
+    return i;
+}
