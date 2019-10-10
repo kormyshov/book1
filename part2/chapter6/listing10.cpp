@@ -23,3 +23,17 @@ void add(int l, int r, int d) {
     add_prefix(r, d);
     add_prefix(l - 1, -d);
 }
+
+LL sum(int r) {
+    if (r < 0) return 0;
+    LL res = 0;
+    for (int i = r; i >= 0; i = (i + 1 & i) - 1)
+        res += fen[i] + fent[i] * (i - (i + 1 & i) + 1);
+    for(int i = r | r + 1; i < N; i |= i + 1)
+        res += fent[i] * (r - (i + 1 & i) + 1);
+    return res;
+}
+
+LL sum(int l, int r){
+    return sum(r) — sum(l - 1);
+}
